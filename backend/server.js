@@ -6,7 +6,13 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+
+// ✅ Sirf ek baar, sahi jagah, env se URL
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true,
+}));
+
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/authRoutes'));
@@ -21,7 +27,3 @@ mongoose.connect(process.env.MONGO_URI)
         app.listen(process.env.PORT || 5000, () => console.log('Server running on port 5000'));
     })
     .catch((err) => { console.error(err.message); process.exit(1); });
-app.use(cors({
-    origin: 'http://localhost:5173',
-    credentials: true,
-}));
