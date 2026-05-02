@@ -250,7 +250,4 @@ User {
 
 ---
 
-## 👩‍💻 Author
 
-**Vaibhavi Dhenge**
-Assessment for Purple Merit Technologies — MERN Stack Developer Intern
